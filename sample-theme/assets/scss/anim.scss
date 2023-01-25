@@ -1,0 +1,290 @@
+.scroll-render {
+    position: relative;
+    width: 100%;
+    transition: all 1s linear;
+
+
+    &::before,
+    &::after {
+        content: "";
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+        
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: #ddd;
+        opacity: 1;
+    }
+}
+
+.scroll-render.active {
+    &::before,
+    &::after {
+        width: 0px;
+        background-color: transparent;
+        opacity: 0;
+
+        transition: background-color 1s .5s,width 1s .5s, opacity 1s 1s;
+    }
+}
+
+.fadeIn,
+.fadeUp,
+.fadeDown,
+.fadeLeft,
+.fadeRight {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.fadeOut,
+.fadeUpOut,
+.fadeDownOut,
+.fadeLeftOut,
+.fadeRightOut {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+/* ゆっくり表示 */
+.fadeIn {
+    animation-name: fadeInAnime;
+}
+/* 下から表示 */
+.fadeUp {
+    animation-name: fadeUpAnime;
+}
+/* 上から表示 */
+.fadeDown {
+    animation-name: fadeDownAnime;
+}
+/* 左から表示 */
+.fadeLeft {
+    animation-name: fadeLeftAnime;
+}
+/* 右から表示 */
+.fadeRight {
+    animation-name: fadeRightAnime;
+}
+
+
+/* ゆっくり非表示 */
+.fadeOut {
+    animation-name: fadeOutAnime;
+}
+/* 下から非表示 */
+.fadeUpOut {
+    animation-name: fadeUpOutAnime;
+}
+/* 上から非表示 */
+.fadeDownOut {
+    animation-name: fadeDownOutAnime;
+}
+/* 左から非表示 */
+.fadeLeftOut {
+    animation-name: fadeLeftOutAnime;
+}
+/* 右から非表示 */
+.fadeRightOut {
+    animation-name: fadeRightOutAnime;
+}
+
+.rotateRight,
+.rotateLeft{
+    animation-timing-function: inherit;
+    animation-iteration-count: 1;
+    animation-duration: 0.3s;
+    transform-origin: bottom;
+}
+/* 右から回転 */
+.rotateRight {
+    animation-name: rotateRightAnime;
+}
+/* 左から回転 */
+.rotateLeft {
+    animation-name: rotateLeftAnime;
+}
+
+
+.imag-wrap::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10000;
+    display: block;
+    width: 100%;
+    background-color: #000;
+
+
+    // animation-timing-function: inherit;
+    // animation-iteration-count: infinite;
+    // animation-duration: 2s;
+    // transform-origin: bottom;
+    // animation-name: disp-bar;
+}
+
+@keyframes dadada {
+    0% {
+        border-left: solid 3px black;
+        background-color: #fff;
+    }
+
+    40%{
+        border: initial;
+        background-color: #ddd;
+    }
+    100%{
+        border: initial;
+        background: initial;
+    }
+}
+
+
+@keyframes disp-bar {
+    0% {
+        border-left: solid 100% black;
+        width: 0%;
+    }
+
+    100%{
+        border-left: solid 0px black;
+        width: initial;
+    }
+}
+
+@keyframes fadeInAnime {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeDownAnime {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeLeftAnime {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeRightAnime {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutAnime {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeUpOutAnime {
+    from {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeDownOutAnime {
+    from {
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeLeftOutAnime {
+    from {
+        opacity: 1;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeRightOutAnime {
+    from {
+        opacity: 1;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotateRightAnime {
+    from {
+        transform: rotate(45deg) translate(50vw, 20vh);
+    }
+
+    to {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+@keyframes rotateLeftAnime {
+    from {
+        transform: rotate(-45deg) translate(-200px, 180px);
+    }
+
+    to {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
