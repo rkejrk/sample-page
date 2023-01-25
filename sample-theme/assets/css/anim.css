@@ -1,0 +1,417 @@
+@charset "UTF-8";
+.scroll-render {
+  position: relative;
+  width: 100%;
+  transition: all 1s linear;
+}
+.scroll-render::before, .scroll-render::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  opacity: 1;
+}
+
+.scroll-render.active::before, .scroll-render.active::after {
+  width: 0px;
+  background-color: transparent;
+  opacity: 0;
+  transition: background-color 1s 0.5s, width 1s 0.5s, opacity 1s 1s;
+}
+
+.fadeIn,
+.fadeUp,
+.fadeDown,
+.fadeLeft,
+.fadeRight {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeOut,
+.fadeUpOut,
+.fadeDownOut,
+.fadeLeftOut,
+.fadeRightOut {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+/* ゆっくり表示 */
+.fadeIn {
+  -webkit-animation-name: fadeInAnime;
+          animation-name: fadeInAnime;
+}
+
+/* 下から表示 */
+.fadeUp {
+  -webkit-animation-name: fadeUpAnime;
+          animation-name: fadeUpAnime;
+}
+
+/* 上から表示 */
+.fadeDown {
+  -webkit-animation-name: fadeDownAnime;
+          animation-name: fadeDownAnime;
+}
+
+/* 左から表示 */
+.fadeLeft {
+  -webkit-animation-name: fadeLeftAnime;
+          animation-name: fadeLeftAnime;
+}
+
+/* 右から表示 */
+.fadeRight {
+  -webkit-animation-name: fadeRightAnime;
+          animation-name: fadeRightAnime;
+}
+
+/* ゆっくり非表示 */
+.fadeOut {
+  -webkit-animation-name: fadeOutAnime;
+          animation-name: fadeOutAnime;
+}
+
+/* 下から非表示 */
+.fadeUpOut {
+  -webkit-animation-name: fadeUpOutAnime;
+          animation-name: fadeUpOutAnime;
+}
+
+/* 上から非表示 */
+.fadeDownOut {
+  -webkit-animation-name: fadeDownOutAnime;
+          animation-name: fadeDownOutAnime;
+}
+
+/* 左から非表示 */
+.fadeLeftOut {
+  -webkit-animation-name: fadeLeftOutAnime;
+          animation-name: fadeLeftOutAnime;
+}
+
+/* 右から非表示 */
+.fadeRightOut {
+  -webkit-animation-name: fadeRightOutAnime;
+          animation-name: fadeRightOutAnime;
+}
+
+.rotateRight,
+.rotateLeft {
+  -webkit-animation-timing-function: inherit;
+          animation-timing-function: inherit;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  transform-origin: bottom;
+}
+
+/* 右から回転 */
+.rotateRight {
+  -webkit-animation-name: rotateRightAnime;
+          animation-name: rotateRightAnime;
+}
+
+/* 左から回転 */
+.rotateLeft {
+  -webkit-animation-name: rotateLeftAnime;
+          animation-name: rotateLeftAnime;
+}
+
+.imag-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+  display: block;
+  width: 100%;
+  background-color: #000;
+}
+
+@-webkit-keyframes dadada {
+  0% {
+    border-left: solid 3px black;
+    background-color: #fff;
+  }
+  40% {
+    border: initial;
+    background-color: #ddd;
+  }
+  100% {
+    border: initial;
+    background: initial;
+  }
+}
+
+@keyframes dadada {
+  0% {
+    border-left: solid 3px black;
+    background-color: #fff;
+  }
+  40% {
+    border: initial;
+    background-color: #ddd;
+  }
+  100% {
+    border: initial;
+    background: initial;
+  }
+}
+@-webkit-keyframes disp-bar {
+  0% {
+    border-left: solid 100% black;
+    width: 0%;
+  }
+  100% {
+    border-left: solid 0px black;
+    width: initial;
+  }
+}
+@keyframes disp-bar {
+  0% {
+    border-left: solid 100% black;
+    width: 0%;
+  }
+  100% {
+    border-left: solid 0px black;
+    width: initial;
+  }
+}
+@-webkit-keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeDownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeDownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeLeftAnime {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftAnime {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeRightAnime {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeRightAnime {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeOutAnime {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOutAnime {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeUpOutAnime {
+  from {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeUpOutAnime {
+  from {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeDownOutAnime {
+  from {
+    opacity: 1;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeDownOutAnime {
+  from {
+    opacity: 1;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeLeftOutAnime {
+  from {
+    opacity: 1;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftOutAnime {
+  from {
+    opacity: 1;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeRightOutAnime {
+  from {
+    opacity: 1;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeRightOutAnime {
+  from {
+    opacity: 1;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes rotateRightAnime {
+  from {
+    transform: rotate(45deg) translate(50vw, 20vh);
+  }
+  to {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+@keyframes rotateRightAnime {
+  from {
+    transform: rotate(45deg) translate(50vw, 20vh);
+  }
+  to {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+@-webkit-keyframes rotateLeftAnime {
+  from {
+    transform: rotate(-45deg) translate(-200px, 180px);
+  }
+  to {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+@keyframes rotateLeftAnime {
+  from {
+    transform: rotate(-45deg) translate(-200px, 180px);
+  }
+  to {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}/*# sourceMappingURL=anim.css.map */
