@@ -1375,10 +1375,54 @@ footer.page-last {
                     div.imag-wrap,
                     div.comment-wrap {
                         width: 100%;
+                        border: none;
+                        border-radius: 10px;
                     }
                 }
             }
         }
+
+        &:has(.new-posts){
+            overflow: hidden;
+        }
+    }
+
+    .new-posts {
+        ul.img-list {
+            padding: 0px;
+            width: 80%;
+            transform: none;
+
+            li {
+                margin: 4vh auto;
+                transform: none;
+                width: 100%;
+
+                &:nth-child(2) a.bg-image{
+                    width: 90%;
+
+                }
+                &:nth-child(3) a.bg-image{
+                    width: 80%;
+                }
+
+                a.bg-image {
+                    margin: auto;
+                    height: 24vh;
+                    width: 100%;
+                    border: none;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+
+
+                    span {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
     }
 
 

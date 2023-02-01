@@ -1176,6 +1176,39 @@ footer.page-last > * {
   body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.section-wrap div.imag-wrap,
 body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.section-wrap div.comment-wrap {
     width: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+  body:has(.new-posts) {
+    overflow: hidden;
+  }
+  .new-posts ul.img-list {
+    padding: 0px;
+    width: 80%;
+    transform: none;
+  }
+  .new-posts ul.img-list li {
+    margin: 4vh auto;
+    transform: none;
+    width: 100%;
+  }
+  .new-posts ul.img-list li:nth-child(2) a.bg-image {
+    width: 90%;
+  }
+  .new-posts ul.img-list li:nth-child(3) a.bg-image {
+    width: 80%;
+  }
+  .new-posts ul.img-list li a.bg-image {
+    margin: auto;
+    height: 24vh;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .new-posts ul.img-list li a.bg-image span {
+    font-size: 1.5rem;
   }
   div.preview-widget {
     position: absolute;
