@@ -12,36 +12,6 @@
   --a-wrap-widget-width: 20vw;
 }
 
-@media screen and (max-width: 768px) {
-  body::after {
-    content: "ごめんね。スマホ・タブレットモードは準備中だよ";
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    z-index: 10000000;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #b4b4b4;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  body::after {
-    content: "ごめんね。スマホ・タブレットモードは準備中だよ";
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    z-index: 10000000;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #b4b4b4;
-  }
-}
 body {
   width: 100vw;
   height: 100vh;
@@ -1187,4 +1157,89 @@ footer.page-last div#footer-menu ul li a {
 }
 footer.page-last > * {
   margin: 5px 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    overflow-y: overlay;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  body:has(.preview-widget) div.content-body {
+    right: 0px;
+    padding: 40px 40px 0px 0px;
+  }
+  body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.section-wrap {
+    flex-direction: column;
+  }
+  body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.section-wrap div.imag-wrap,
+body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.section-wrap div.comment-wrap {
+    width: 100%;
+  }
+  div.preview-widget {
+    position: absolute;
+    top: 10vh;
+    left: auto;
+    right: 0px;
+  }
+  nav.clip-menu {
+    position: fixed;
+    top: 87vh;
+    left: auto;
+    right: 0px;
+  }
+  nav.clip-menu::before {
+    content: "";
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    width: 0px;
+    height: 0px;
+    border-radius: 100% 100% 0px 100%;
+    transform-origin: right bottom;
+    transition: height 0.3s linear, width 0.3s linear, border-radius 0.3s linear;
+    background-color: #f5f5f5;
+  }
+  nav.clip-menu:has(ul.menu-list:not([disabled]))::before {
+    bottom: 0px;
+    right: 0px;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0%;
+    transition: height 0.3s linear, width 0.3s linear, border-radius 0.3s linear;
+    box-shadow: -5px -5px 10px 0px rgba(0, 0, 0, 0.25);
+    rotate: -1deg;
+  }
+  nav.clip-menu li a,
+nav.clip-menu .collapse button {
+    min-width: 50vw;
+    box-shadow: -5px -5px 0px 5px rgba(0, 0, 0, 0.25);
+    transform: rotate(-3deg);
+  }
+  nav.clip-menu ul.menu-list {
+    top: -50vh;
+  }
+  div.bg div.bg-note {
+    display: none;
+  }
+  div.content-body {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: 100%;
+  }
+  div.content-body::before {
+    rotate: 1deg;
+  }
+  div.content-body div.content-wrap div.search-result {
+    grid-template-columns: 1fr;
+  }
+  aside.side-widget {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 100px auto;
+  }
 }/*# sourceMappingURL=style.css.map */
