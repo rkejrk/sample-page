@@ -1,9 +1,10 @@
 
 var cate_list = new Array();
 var post_navi_data = new Array();
+var uri = new URL(window.location.href);
 
 function get_posts_info() {
-    var posts_api = "http://localhost/wordpress/wp-json/wp/v2/my/get_posts";
+    var posts_api = uri.origin + "/wp-json/wp/v2/my/get_posts";
     $.ajax({
         type: 'GET',
         url: posts_api,
@@ -12,6 +13,10 @@ function get_posts_info() {
             post_navi_data = data;
             cate_ctrl();
             showTimeline(post_navi_data);
+        },
+        error: function () {
+            document.getElementsByClassName('cate_btns').item(0).classList.add("hide");
+            document.getElementsByClassName('time-line').item(0).classList.add("hide");
         }
     });
 }
@@ -28,7 +33,7 @@ function cate_ctrl() {
         if (i > 0) {
 
             var input = cate_btns.item(i).children.item(0);
-            input.checked =true;
+            input.checked = true;
             cate_list[input.id] = true;
             input.addEventListener('change', (e) => {
                 setFlag(e.target.id, e.target.checked);
@@ -66,7 +71,7 @@ function showTimeline(data) {
     // 表示可能件数
     var item_num = ((height - dot_height) / (date_height + dot_height));
     // どの倍数で表示するか
-    var target_index = (data.length > item_num)? Math.floor(data.length / item_num): 1;
+    var target_index = (data.length > item_num) ? Math.floor(data.length / item_num) : 1;
 
 
     var current_top = 0;

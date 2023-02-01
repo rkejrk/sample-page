@@ -452,6 +452,7 @@ aside.side-widget {
         }
 
         &:has(ul.time-line) {
+
             .cate_btns {
                 position: relative;
                 margin: 20px;
@@ -465,7 +466,7 @@ aside.side-widget {
                     left: -9999px;
                     top: 0px;
 
-                    
+
                     &:first-child {
                         position: relative;
                         left: 0px;
@@ -507,6 +508,7 @@ aside.side-widget {
                     }
                 }
             }
+
 
             ul.time-line {
                 position: relative;
@@ -556,6 +558,11 @@ aside.side-widget {
                         }
                     }
                 }
+            }
+
+            ul.time-line.hide,
+            .cate_btns.hide {
+                display: none;
             }
         }
 
@@ -1351,7 +1358,7 @@ footer.page-last {
     position: fixed;
     bottom: 0px;
     left: 0px;
-    z-index: 5;
+    z-index: 10;
     width: 100vw;
     height: 30px;
     background-color: #000;

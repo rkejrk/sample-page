@@ -473,6 +473,10 @@ aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line li#opened a:
   content: "●";
   margin: 10px;
 }
+aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line.hide,
+aside.side-widget section.wp-widgets:has(ul.time-line) .cate_btns.hide {
+  display: none;
+}
 aside.side-widget section.wp-widgets div:has(form.wp-block-search) form.wp-block-search * {
   padding: 5px;
   border-radius: 10px;
@@ -1155,7 +1159,7 @@ footer.page-last {
   position: fixed;
   bottom: 0px;
   left: 0px;
-  z-index: 5;
+  z-index: 10;
   width: 100vw;
   height: 30px;
   background-color: #000;
