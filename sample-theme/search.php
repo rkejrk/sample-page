@@ -1,6 +1,5 @@
 <!-- 404エラー画面 -->
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
 
 
 <div class="content-body rotateRight">
@@ -8,13 +7,13 @@
         <?php if (have_posts()) : ?>
             <?php if (!$_GET['s']) { ?>
                 <p>検索キーワードが未入力です</p>
-
-            <?php } else { ?>
-                <h1 class="page-title">
-                    「<?php echo esc_html($_GET['s']); ?>」の検索結果：<?php echo $wp_query->found_posts; ?>件
-                </h1>
-
-                <div class=" search-result">
+                
+                <?php } else { ?>
+                    <h1 class="page-title">
+                        「<?php echo esc_html($_GET['s']); ?>」の検索結果：<?php echo $wp_query->found_posts; ?>件
+                    </h1>
+                    
+                    <div class=" search-result">
                     <?php while (have_posts()) : the_post(); ?>
                         <article onclick="openLink('<?php the_permalink(); ?>')">
                             <ul class="meta">
@@ -30,7 +29,7 @@
                                     <?php the_post_thumbnail(); ?>
                                 <?php endif; ?>
                             </a>
-
+                            
                             <div class="text">
                                 <?php the_excerpt() ?>
                             </div>
@@ -40,10 +39,11 @@
             <?php } ?>
         <?php else : ?>
             <p>検索されたキーワードに一致する記事はありませんでした</p>
-
+            
         <?php endif; ?>
     </div>
 </div>
 
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

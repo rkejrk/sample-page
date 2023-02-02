@@ -1,10 +1,9 @@
 <!-- 投稿一覧 -->
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
 
 <div class="content-body">
     <div class="content-wrap">
-
+        
         <?php if (have_posts()) : ?>
             <!-- アクセスされたページ種別でタイトルの文字を調整 -->
             <?php
@@ -20,14 +19,14 @@
             }
             ?>
 
-            <!-- タイトルを出力 -->
-            <h1><?php echo $page_title; ?>の記事一覧</h1>
+<!-- タイトルを出力 -->
+<h1><?php echo $page_title; ?>の記事一覧</h1>
 
-            <div class=" search-result">
-                <?php while (have_posts()) : the_post(); ?>
-
-
-                    <article onclick="openLink('<?php the_permalink(); ?>')">
+<div class=" search-result">
+    <?php while (have_posts()) : the_post(); ?>
+    
+    
+    <article onclick="openLink('<?php the_permalink(); ?>')">
                         <ul class="meta">
                             <li class="res-item-time"><?php the_time('Y/m/d'); ?></li>
                             <?php if (has_category()) : ?>
@@ -39,10 +38,10 @@
                         <a href="<?php the_permalink(); ?>">
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail(); ?>
-                            <?php endif; ?>
-                        </a>
-
-                        <div class="text">
+                                <?php endif; ?>
+                            </a>
+                            
+                            <div class="text">
                             <?php the_excerpt() ?>
                         </div>
                     </article>
@@ -66,8 +65,9 @@
             ));
             ?>
         </div>
-
+        
     </div>
 </div>
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

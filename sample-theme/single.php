@@ -1,6 +1,5 @@
 <!-- トップ画面 -->
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
 <div class="bg">
     <div class="bg-note rotateRight">
         <div></div>
@@ -16,14 +15,14 @@
         <div class="content-body">
             <?php if ('image' == get_post_format($post->ID)) : ?>
                 <?php get_template_part('single', get_post_format()); ?>
-
-            <?php else : ?>
+                
+                <?php else : ?>
                 <div class="content-wrap">
-
-
+                    
+                    
                     <h1><?php the_title() ?></h1>
                     <?php the_content("続きを読む", true); ?>
-
+                    
                     <?php
                     wp_link_pages(array(
                         'before'      => '<div class="page-links"><span class="page-links-title">ページ：</span>',
@@ -33,12 +32,12 @@
                     ));
                     ?>
 
-                    <?php the_posts_pagination(array('screen_reader_text' => ' ')); ?>
+<?php the_posts_pagination(array('screen_reader_text' => ' ')); ?>
 
 
-                    <div class="post-near">
-                        <div class="post-pre">
-                            <?php previous_post_link(); ?>
+<div class="post-near">
+    <div class="post-pre">
+        <?php previous_post_link(); ?>
                         </div>
                         <div class="post-next">
                             <?php next_post_link(); ?>
@@ -46,13 +45,14 @@
                     </div>
                 </div>
 
-            <?php endif; ?>
+                <?php endif; ?>
         </div>
 
 <?php endwhile;
 endif; ?>
 
 
+<?php get_sidebar(); ?>
 <div class="preview-widget">
     <div class="preview-list">
         <?php
@@ -64,11 +64,11 @@ endif; ?>
         else:
             echo '<div></div>';
         endif;
-
-
+        
+        
         foreach($data['posts'] as $id):
             if (!empty($id)) :
-        ?>
+                ?>
                 <div class="img" onclick="openLink('<?php echo get_permalink($id) ?>')" style="background-image: url(
                     <?php echo has_post_thumbnail($id) ? get_the_post_thumbnail_url($id) : get_template_directory_uri() . "/assets/images/dummy.svg"; ?>
                     );">
