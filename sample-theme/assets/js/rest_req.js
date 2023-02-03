@@ -15,8 +15,7 @@ function get_posts_info() {
             showTimeline(post_navi_data);
         },
         error: function () {
-            document.getElementsByClassName('cate_btns').item(0).classList.add("hide");
-            document.getElementsByClassName('time-line').item(0).classList.add("hide");
+            document.getElementsByClassName('posts-view').item(0).classList.add("hide");
         }
     });
 }

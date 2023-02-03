@@ -14,7 +14,7 @@
     <section class="section-wrap">
         <div class="imag-wrap scroll-render">
             <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail(); ?>
+                <?php the_post_thumbnail('full'); ?>
             <?php else : ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dummy.svg">
             <?php endif; ?>
