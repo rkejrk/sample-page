@@ -68,10 +68,12 @@ function showTimeline(data) {
     const date_height = 70;
     const dot_height = 25;
     // 表示可能件数
-    var item_num = ((height - dot_height) / (date_height + dot_height));
+    var can_item_num = ((height - dot_height) / (date_height + dot_height));
     // どの倍数で表示するか
     var target_index = (data.length > item_num) ? Math.floor(data.length / item_num) : 1;
 
+    // 小さい数量を採用
+    var item_num = (can_item_num > data.length) ? data.length : can_item_num;
 
     var current_top = 0;
     for (var i = 0; data.length != 0 && i < item_num; i++) {
