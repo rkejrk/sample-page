@@ -436,6 +436,7 @@ aside.side-widget {
 
 
             ul.time-line {
+                padding: 0px;
                 position: relative;
                 list-style: none;
                 height: 80%;
@@ -464,17 +465,19 @@ aside.side-widget {
 
                     &#opened {
                         position: absolute;
-                        // top: 0;
-
-                        padding: 30px;
+                        left: calc(50% - 89px);
+                        margin: 0px;
+                        padding: 0px;
 
                         a {
-                            background-color: #666;
+                            background-color: #D9D9D9;
                             color: #fff;
-                            margin-left: -20px;
                             padding-right: 20px;
-                            box-shadow: 3px 3px 3px 3px #ddd;
-                            border-radius: 50px 100% 100% 50px;
+                            box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 10%);
+                            border-radius: 50px 100px 100px 50px;
+                            border: solid;
+                            border-width: 0px 1px 1px 0px;
+                            white-space: nowrap;
 
                             &::before {
                                 content: "●";
@@ -485,8 +488,7 @@ aside.side-widget {
                 }
             }
 
-            ul.time-line.hide,
-            .cate_btns.hide {
+            .posts-view.hide {
                 display: none;
             }
         }
@@ -1344,7 +1346,7 @@ footer.page-last {
             height: calc(100vh - var(--footer-height));
             overflow: hidden;
 
-            .bg-logo{
+            .bg-logo {
                 display: none;
             }
         }
@@ -1419,9 +1421,8 @@ footer.page-last {
 
         &:has(ul.menu-list:not([disabled])) {
             display: flex;
-            flex-direction: column-reverse;
-            bottom: 0px;
-            right: 0px;
+            top: auto;
+            flex-direction: column;
 
             &::before {
                 bottom: 0px;
@@ -1441,10 +1442,6 @@ footer.page-last {
             min-width: 50vw;
             box-shadow: -5px -5px 0px 5px rgb(0 0 0 / 25%);
             transform: rotate(-3deg);
-        }
-
-        ul.menu-list {
-            top: -50vh;
         }
     }
 

@@ -366,6 +366,7 @@ aside.side-widget section.wp-widgets:has(ul.time-line) .cate_btns div label {
   transition: left 0.5s;
 }
 aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line {
+  padding: 0px;
   position: relative;
   list-style: none;
   height: 80%;
@@ -393,22 +394,25 @@ aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line li a {
 }
 aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line li#opened {
   position: absolute;
-  padding: 30px;
+  left: calc(50% - 89px);
+  margin: 0px;
+  padding: 0px;
 }
 aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line li#opened a {
-  background-color: #666;
+  background-color: #D9D9D9;
   color: #fff;
-  margin-left: -20px;
   padding-right: 20px;
-  box-shadow: 3px 3px 3px 3px #ddd;
-  border-radius: 50px 100% 100% 50px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 50px 100px 100px 50px;
+  border: solid;
+  border-width: 0px 1px 1px 0px;
+  white-space: nowrap;
 }
 aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line li#opened a::before {
   content: "●";
   margin: 10px;
 }
-aside.side-widget section.wp-widgets:has(ul.time-line) ul.time-line.hide,
-aside.side-widget section.wp-widgets:has(ul.time-line) .cate_btns.hide {
+aside.side-widget section.wp-widgets:has(ul.time-line) .posts-view.hide {
   display: none;
 }
 aside.side-widget section.wp-widgets div:has(form.wp-block-search) form.wp-block-search * {
@@ -1204,9 +1208,8 @@ body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.
   }
   nav.clip-menu:has(ul.menu-list:not([disabled])) {
     display: flex;
-    flex-direction: column-reverse;
-    bottom: 0px;
-    right: 0px;
+    top: auto;
+    flex-direction: column;
   }
   nav.clip-menu:has(ul.menu-list:not([disabled]))::before {
     bottom: 0px;
@@ -1223,9 +1226,6 @@ nav.clip-menu .collapse button {
     min-width: 50vw;
     box-shadow: -5px -5px 0px 5px rgba(0, 0, 0, 0.25);
     transform: rotate(-3deg);
-  }
-  nav.clip-menu ul.menu-list {
-    top: -50vh;
   }
   div.content-body {
     position: relative;
