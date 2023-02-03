@@ -9,7 +9,6 @@
 
     <meta name="description" content="" />
     <script src="https://kit.fontawesome.com/792eb14cab.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/792eb14cab.css" crossorigin="anonymous"> -->
 
     <?php wp_head(); ?>
 </head>

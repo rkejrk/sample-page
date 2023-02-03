@@ -90,42 +90,6 @@ body a:hover {
   color: var(--bg-content-color);
   font-size: 4rem;
 }
-.bg .bg-note {
-  position: absolute;
-  right: 0px;
-  top: var(--a-wrap-top-position);
-  width: var(--a-wrap-width);
-  height: 100vh;
-}
-.bg .bg-note div {
-  position: absolute;
-  width: var(--a-wrap-width);
-  height: 150vh;
-  border: 1px solid var(--bg-content-color);
-  background: #fff;
-  box-shadow: -60px 30px 0px -20px #ddd;
-  -webkit-animation: change-origin 0.3s 1;
-          animation: change-origin 0.3s 1;
-  translate: calc(0px - var(--a-wrap-right-position)) 0;
-}
-.bg .bg-note div:nth-child(1) {
-  top: 0px;
-  left: 0px;
-  rotate: 0deg;
-  z-index: 3;
-}
-.bg .bg-note div:nth-child(2) {
-  top: 78px;
-  left: 10px;
-  rotate: 194deg;
-  z-index: 2;
-}
-.bg .bg-note div:nth-child(3) {
-  top: -14px;
-  left: -180px;
-  rotate: 344deg;
-  z-index: 1;
-}
 
 @-webkit-keyframes typing {
   0% {
@@ -1262,9 +1226,6 @@ nav.clip-menu .collapse button {
   }
   nav.clip-menu ul.menu-list {
     top: -50vh;
-  }
-  div.bg div.bg-note {
-    display: none;
   }
   div.content-body {
     position: relative;
