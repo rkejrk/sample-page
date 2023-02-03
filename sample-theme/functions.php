@@ -1,6 +1,6 @@
 <?php
 
-// カスタムカテゴリ[illust]の設定：開始=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// カスタムフィールド[投稿用]の設定：開始=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 // メタ情報の紐づけ
 if (!function_exists('set_illust_meta')) {
 
@@ -44,7 +44,47 @@ if (!function_exists('save_illust_fields')) {
     }
 }
 add_action('save_post', 'save_illust_fields');
-// カスタムカテゴリ[illust]の設定：終了=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// カスタムフィールド[投稿用]の設定：終了=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+
+
+// カスタムフィールド[カテゴリ用]の設定：開始=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+if (!function_exists('extra_category_fields')) {
+    function extra_category_fields($tag)
+    {
+        $t_id = $tag->term_id;
+        $cat_meta = get_option("cat_$t_id");
+        $icon_name = isset($cat_meta['icon_name']) ? esc_html($cat_meta['icon_name']) : "";
+        echo '<tr class="form-field form-required term-name-wrap">';
+        echo '<th scope="row"><label for="Cat_meta[icon_name]">アイコン名</label></th>';
+        echo '<td><input name="Cat_meta[icon_name]" id="Cat_meta[icon_name]" type="text" value="' . $icon_name . '" size="40" aria-required="true" aria-describedby="name-description">';
+        echo '<p class="description" id="name-description">icon name for using fontawesome  </p></td></tr>';
+    }
+}
+
+add_action('edit_category_form_fields', 'extra_category_fields');
+
+if (!function_exists('save_extra_category_fileds')) {
+    function save_extra_category_fileds($term_id)
+    {
+        if (isset($_POST['Cat_meta'])) {
+            $t_id = $term_id;
+            $cat_meta = get_option("cat_$t_id");
+            $cat_keys = array_keys($_POST['Cat_meta']);
+            foreach ($cat_keys as $key) {
+                if (isset($_POST['Cat_meta'][$key])) {
+                    $cat_meta[$key] = $_POST['Cat_meta'][$key];
+                }
+            }
+            update_option("cat_$t_id", $cat_meta);
+        }
+    }
+}
+add_action('edited_term', 'save_extra_category_fileds');
+// カスタムフィールド[カテゴリ用]の設定：終了=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
 
 
 // WP機能の有効化設定=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
@@ -86,6 +126,8 @@ if (!function_exists('my_stepup')) {
 add_action('after_setup_theme', 'my_stepup');
 
 
+
+
 // サイドバーの設定=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 if (!function_exists('my_widgetinit')) {
     function my_widgetinit()
@@ -109,6 +151,8 @@ if (!function_exists('my_widgetinit')) {
 add_action('widgets_init', 'my_widgetinit');
 
 
+
+
 // アセットファイル読み込み=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 if (!function_exists('my_enqueue_scripts')) {
     function my_enqueue_scripts()
@@ -123,6 +167,7 @@ if (!function_exists('my_enqueue_scripts')) {
     }
 }
 add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
+
 
 
 
@@ -194,6 +239,8 @@ add_shortcode('my-shortcode_ex2js', 'my_shortcode_ex2js_handler');
 
 
 
+
+// TimelineAPI定義：開始=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 add_action('rest_api_init', function () {
     register_rest_route('wp/v2', '/my/get_posts', array(
         'methods' => 'GET',
@@ -240,10 +287,10 @@ function near_posts(int $id)
     }
     // 現在の記事のIndexを取得
     $current = array_search($id, $posts);
-    
+
     // 前後取得
-    $prevID = $current !== 0? $posts[$current - 1]: null;
-    $nextID = $current !== (count($posts) - 1)?$posts[$current + 1]: null;
+    $prevID = $current !== 0 ? $posts[$current - 1] : null;
+    $nextID = $current !== (count($posts) - 1) ? $posts[$current + 1] : null;
     // 取得する最初のインデックス
     $start_index = 0;
     if ($current > 3) {
@@ -259,3 +306,4 @@ function near_posts(int $id)
         'posts' => $posts
     );
 }
+// TimelineAPI定義：終了=＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝

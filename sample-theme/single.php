@@ -1,13 +1,5 @@
 <!-- トップ画面 -->
 <?php get_header(); ?>
-<div class="bg">
-    <div class="bg-note rotateRight">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
-
 <?php if (have_posts()) :
     while (have_posts()) : ?>
         <?php the_post();

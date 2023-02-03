@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
     <meta name="description" content="" />
+    <script src="https://kit.fontawesome.com/792eb14cab.js" crossorigin="anonymous"></script>
 
     <?php wp_head(); ?>
 </head>
