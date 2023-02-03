@@ -7,14 +7,6 @@ get_header(); ?>
 <!-- トップ画面 -->
 <?php get_header(); ?>
 
-<div class="bg">
-   <div class="bg-note rotateRight">
-      <div></div>
-      <div></div>
-      <div></div>
-   </div>
-</div>
-
 <div class="content-body">
    <div class="content-wrap">
       <?php if (have_posts()) :

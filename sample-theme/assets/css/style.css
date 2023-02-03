@@ -1180,7 +1180,11 @@ body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.
     border-radius: 10px;
   }
   body:has(.new-posts) {
+    height: calc(100vh - var(--footer-height));
     overflow: hidden;
+  }
+  body:has(.new-posts) .bg-logo {
+    display: none;
   }
   .new-posts ul.img-list {
     padding: 0px;
@@ -1234,6 +1238,12 @@ body:has(.preview-widget) div.content-body div.content-wrap.cate-illust section.
     transition: height 0.3s linear, width 0.3s linear, border-radius 0.3s linear;
     background-color: #f5f5f5;
   }
+  nav.clip-menu:has(ul.menu-list:not([disabled])) {
+    display: flex;
+    flex-direction: column-reverse;
+    bottom: 0px;
+    right: 0px;
+  }
   nav.clip-menu:has(ul.menu-list:not([disabled]))::before {
     bottom: 0px;
     right: 0px;
@@ -1274,5 +1284,8 @@ nav.clip-menu .collapse button {
     width: 100%;
     height: auto;
     margin: 100px auto;
+  }
+  aside.side-widget:after {
+    content: none;
   }
 }/*# sourceMappingURL=style.css.map */
