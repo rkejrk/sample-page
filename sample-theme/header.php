@@ -11,7 +11,17 @@
     <script src="https://kit.fontawesome.com/792eb14cab.js" crossorigin="anonymous"></script>
 
     <?php wp_head(); ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9FYQ09EFY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-H9FYQ09EFY');
+    </script>
 </head>
+
 
 <body>
     <nav class="clip-menu">
