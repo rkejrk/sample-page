@@ -20,6 +20,7 @@ services:
      image: wordpress:latest
      volumes:
        -  ./sample-theme/:/var/www/html/wp-content/themes/main/
+       -  ./images/:/var/www/html/wp-content/uploads/
      ports:
        - "8000:80"
      restart: always
@@ -28,3 +29,4 @@ services:
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpresspass
        WORDPRESS_DB_NAME: wordpress
+       WORDPRESS_DEBUG: 1
